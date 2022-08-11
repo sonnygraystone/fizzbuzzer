@@ -1,0 +1,17 @@
+{
+    "name": "fizzbuzzer",
+    "version": "1.0.0",
+    "description": "FizzBuzz in a servlet",
+    "main": "null",
+    "scripts": {
+        "start": "atlas-mvn clean jira:debug",
+        "build": "atlas-mvn package -DskipTests",
+        "build:watch": "nodemon --exec npm run build",
+        "test": "node_modules/.bin/cypress open"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "cypress": "^9.7.0"
+    }
+}

@@ -1,0 +1,32 @@
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}" />
+        <param name="plugin-icon">images/pluginIcon.png</param>
+        <param name="plugin-logo">images/pluginLogo.png</param>
+    </plugin-info>
+
+    <!-- add our i18n resource -->
+    <resource type="i18n" name="i18n" location="jira.fizzbuzzer"/>
+    
+    <!-- add our web resources -->
+    <web-resource key="jira.fizzbuzzer-resources" name="jira.fizzbuzzer Web Resources">
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        
+        <resource type="download" name="jira.fizzbuzzer.css" location="/css/jira.fizzbuzzer.css"/>
+        <resource type="download" name="jira.fizzbuzzer.js" location="/js/jira.fizzbuzzer.js"/>
+        <resource type="download" name="images/" location="/images"/>
+
+        <context>jira.fizzbuzzer</context>
+    </web-resource>
+
+    <servlet key="fizzbuzzer-servlet" class="org.techtime.servlets.FizzBuzzerServlet">
+        <url-pattern>/fizzbuzzer/api/*</url-pattern>
+    </servlet>
+
+    <servlet key="kata_description-servlet" class="org.techtime.servlets.KataDescriptionServlet">
+        <url-pattern>/fizzbuzzer/api</url-pattern>
+    </servlet>
+
+</atlassian-plugin>
